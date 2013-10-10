@@ -1,0 +1,13 @@
+{% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
+
+{% block title %} - 403{% endblock %}
+{% block pageTitle %}Acceso denegado{% endblock %}
+
+{% block content %}
+<div class="panel">
+	<div class="wrapper">
+		<h1 class="centered-title">403</h1>
+		<p style="text-align:center">Solicitud denegada. Usted no tiene permisos para acceder a esta p&aacute;gina. Si necesita acceso contacte a su administrador.</p>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,141 @@
+<form action="{{ save_url }}" method="POST">
+    <div class="wrapper">
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.name.label }}*</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.name }}
+                <ul class="errors">
+                    {% for error in form.name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.description.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.description }}
+                <ul class="errors">
+                    {% for error in form.description.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.content.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.content }}
+                <ul class="errors">
+                    {% for error in form.content.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.show.label }}*</p>
+            </div>
+            <div class="large-3 columns end">
+                {{ form.show }}
+                <ul class="errors">
+                    {% for error in form.show.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.searchable.label }}*</p>
+            </div>
+            <div class="large-3 columns end">
+                {{ form.searchable }}
+                <ul class="errors">
+                    {% for error in form.searchable.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.template_id.label }}</p>
+            </div>
+            <div class="large-9 columns end">
+                {{ form.template_id }}
+                <ul class="errors">
+                    {% for error in form.template_id.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.show_floating.label }}*</p>
+            </div>
+            <div class="large-3 columns end">
+                {{ form.show_floating }}
+                <ul class="errors">
+                    {% for error in form.show_floating.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.floating_content.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.floating_content }}
+                <ul class="errors">
+                    {% for error in form.floating_content.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns button-bar">
+            <input type="submit" value="Guardar">
+        </div>
+    </div>
+</form>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#content').redactor({
+            lang: 'es',
+            wym: true,
+            toolbarFixed: true,
+            toolbarFixedBox: '#content',
+            plugins: ['fullscreen'],
+            tabSpaces: true,
+            imageUpload: '/files/upload/image',
+            buttons: ['html', '|', 'formatting', '|', 'bold', 'italic', 'deleted', 'underline', '|', 'unorderedlist', 'orderedlist', 'outdent', 'indent', '|', 'image', 'file', 'table', 'link', '|', 'fontcolor', 'backcolor', '|', 'alignment', '|', 'horizontalrule']
+        });
+
+        $('#floating_content').redactor({
+            lang: 'es',
+            wym: true,
+            tabSpaces: true,
+            buttons: ['html', '|', 'formatting', '|', 'bold', 'italic', 'deleted', 'underline', '|', 'image', 'file', 'link', 'alignment', '|', 'horizontalrule']
+        });
+    });
+</script>

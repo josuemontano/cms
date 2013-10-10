@@ -1,0 +1,71 @@
+{% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
+
+{% block title %} - Sitio{% endblock %}
+{% block pageTitle %}Sitio{% endblock %}
+
+{% block content %}
+<div class="panel">
+	<div class="wrapper">
+		<div class="row">
+			<div class="large-6 columns">
+				<p class="field-title">Nombre</p>
+				<p>{{ object.title }}</p>
+			</div>
+			<div class="large-6 columns">
+				<p class="field-title">Correos de contacto</p>
+				<p>{{ object.contact_mails }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns large-offset-6">
+				<p class="field-title">Logo</p>
+				{{ object.logo|safe }}
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="large-6 columns">
+				<p class="field-title">Facebook</p>
+				<p>{{ object.facebook }}</p>
+			</div>
+			<div class="large-6 columns">
+				<p class="field-title">Twitter</p>
+				<p>{{ object.twitter }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns">
+				<p class="field-title">Youtube</p>
+				<p>{{ object.youtube }}</p>
+			</div>
+			<div class="large-6 columns">
+				<p class="field-title">Google Analytics</p>
+				<p>{{ object.ga_code }}</p>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="large-6 columns">
+				<p class="field-title">Descripci&oacute;n</p>
+				<p>{{ object.meta_description }}</p>
+			</div>
+			<div class="large-6 columns">
+				<p class="field-title">Palabras clave</p>
+				<p>{{ object.meta_keywords }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns">
+				<p class="field-title">Copyright</p>
+				<p>{{ object.meta_copyright }}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns button-bar">
+			<div class="button"><a onclick="loadPage('/site/update', '#body', $(this))">Modificar</a></div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'templates/base/form.html' %}
+
+{% block title %} - Iniciar sesi&oacute;n{% endblock %}
+{% block pageTitle %}Iniciar sesi&oacute;n{% endblock %}
+
+{% block form %}
+    <form action="{{ save_url }}" method="POST">
+        <input type="hidden" name="next" value="{{ next }}"/>
+        
+        <div class="wrapper">
+            <div class="row">
+                <div class="large-3 columns label">
+                    <p>{{ form.username.label }}*</p>
+                </div>
+                <div class="large-9 columns">
+                    {{ form.username }}
+                    <ul class="errors">
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-3 columns label">
+                    <p>{{ form.password.label }}*</p>
+                </div>
+                <div class="large-9 columns">
+                    {{ form.password }}
+                    <ul class="errors">
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns button-bar">
+                <input type="submit" value="Entrar">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

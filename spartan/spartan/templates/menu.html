@@ -1,0 +1,28 @@
+<ul class="vertical-menu">
+{% if user %}
+	<li><a onclick="loadPage('{{ request.resource_url(request.root) }}', '#body', $(this))" class="icon-logo"></a></li>
+	<li>
+		<a onclick="loadPage('{{ request.resource_url(request.root) }}pages', '#body', $(this))" class="foundicon-edit"></a>
+		<p class="description">P&aacute;ginas</p>
+	</li>
+	<li>
+		<a onclick="loadPage('{{ request.resource_url(request.root) }}site', '#body', $(this))" class="foundicon-globe"></a>
+		<p class="description">Sitio</p>
+	</li>
+<!-- 	<li>
+		<a onclick="loadPage('/files', '#body', $(this))" class="foundicon-paper-clip"></a>
+		<p class="description">Archivos</p>
+	</li> -->
+	<li>
+		<a onclick="loadPage('{{ request.resource_url(request.root) }}accounts', '#body', $(this))" class="foundicon-people"></a>
+		<p class="description">Usuarios</p>
+	</li>
+
+	<li>
+		<a href="{{ request.resource_url(request.root) }}logout" class="foundicon-left-arrow"></a>
+		<p class="description">Salir</p>
+	</li>
+{% else %}
+	<li><a class="icon-logo"></a></li>
+{% endif %}
+</ul>

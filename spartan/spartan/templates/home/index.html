@@ -1,0 +1,42 @@
+{% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
+
+
+{% block content %}
+<div class="panel">
+    <div class="wrapper">
+        <h2 style="text-align:center;border-bottom:1px #222 solid">Bienvenido</h2>
+        <div class="row">
+            <div class="large-6 columns small-6">
+                <p class="field-title">Nombre del sitio</p>
+                <p>{{ site.title }}</p>
+                <br>
+                <p class="field-title">P&aacute;ginas</p>
+                {% for p in pages %}
+                    <p style="margin:0">{{ p }}</p>
+                {% endfor %}
+                <br>
+                <p class="field-title">Usuarios</p>
+                {% for u in users %}
+                    <p>{{ u }}</p>
+                {% endfor %}
+                <br>
+            </div>
+            <div class="large-6 columns small-6" style="text-align:justify">
+                <p>ATC Talentos Creativos le presenta SpartanCMS 4.0, un gestor de contenidos para su sitio web hecho a medida.</p>
+                <p>SpartanCMS le entrega el control sobre su sitio, de tal forma que administrarlo sea tan sencillo como editar un documento de texto. El men&uacute; (hallado a la izquierda de esta p&aacute;gina) le permite navegar por las distintas secciones de SpartanCMS. A continuaci&oacute;n se describen las secciones principales de este administrador de contenidos.</p>
+                <h4>P&aacute;ginas</h4>
+                <p>Esta secci&oacute;n le permitir&aacute; acceder y editar el contenido de su sitio. Puede cambiar el orden de las p&aacute;ginas, quitarlas, ocultarlas o a&ntilde;adir nuevas.</p>
+                <h4>Sitio</h4>
+                <p>Aqu&iacute; es donde puede administrar algunas propiedades globales, como ser el nombre del sitio, el logo y sus correos de contacto.</p>
+                <p>No olvide escribir una descripcion y las palabras clave de su sitio, esto hace posible mejores resultados cuando su sitio se busca mediante un motor de b&uacute;squeda como Google.</p>
+                <h4>Usuarios</h4>
+                <p>La administraci&oacute;n de usuarios se puede realizar desde esta secci&oacute;n. Puede cambiar contrase&ntilde;as y grupos de los usuarios existentes, adem&aacute;s de crear nuevos.</p>
+                <br>
+                <p>Si tiene alguna consulta, sugerencia o problema puede escribirnos a <a href="mailto:info@talentoscreativos.com">info@talentoscreativos.com</a>, estamos para ayudarle.</p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

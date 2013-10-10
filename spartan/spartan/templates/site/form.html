@@ -1,0 +1,154 @@
+<form action="{{ save_url }}" method="POST">
+    <div class="wrapper">
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.title.label }}*</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.title }}
+                <ul class="errors">
+                    {% for error in form.title.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="large-3 columns label">
+                <p>{{ form.logo.label }}*</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.logo }}
+                <ul class="errors">
+                    {% for error in form.logo.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.contact_mails.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.contact_mails }}
+                <ul class="errors">
+                    {% for error in form.contact_mails.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.facebook.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.facebook }}
+                <ul class="errors">
+                    {% for error in form.facebook.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="large-3 columns label">
+                <p>{{ form.twitter.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.twitter }}
+                <ul class="errors">
+                    {% for error in form.twitter.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="large-3 columns label">
+                <p>{{ form.youtube.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.youtube }}
+                <ul class="errors">
+                    {% for error in form.youtube.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="large-3 columns label">
+                <p>{{ form.ga_code.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.ga_code }}
+                <ul class="errors">
+                    {% for error in form.ga_code.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <hr>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.meta_description.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.meta_description }}
+                <ul class="errors">
+                    {% for error in form.meta_description.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.meta_keywords.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.meta_keywords }}
+                <ul class="errors">
+                    {% for error in form.meta_keywords.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ form.meta_copyright.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.meta_copyright }}
+                <ul class="errors">
+                    {% for error in form.meta_copyright.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns button-bar">
+            <input type="submit" value="Guardar">
+        </div>
+    </div>
+</form>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#logo').redactor({
+            lang: 'es',
+            wym: true,
+            imageUpload: '/files/upload/image',
+            buttons: ['html', '|', 'image']
+        });
+    });
+</script>

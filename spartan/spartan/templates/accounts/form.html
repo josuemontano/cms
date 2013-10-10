@@ -1,0 +1,26 @@
+<form action="{{ save_url }}" method="POST">
+    <div class="wrapper">
+        {% for field in form %}
+        <div class="row">
+            <div class="large-3 columns label">
+                <p>{{ field.label }}{% if field.flags.required %}*{% endif %}</p>
+            </div>
+
+            <div class="large-9 columns">
+                {{ field }}
+                <ul class="errors">
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="large-12 columns button-bar">
+            <input type="submit" value="Guardar">
+        </div>
+    </div>
+</form>

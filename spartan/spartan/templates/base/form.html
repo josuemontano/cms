@@ -1,0 +1,25 @@
+{% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
+
+{% block content %}
+	{% if message %}
+        <div class="message">
+            {{ message|safe }}
+        </div>
+    {% endif %}
+
+	<div class="panel form-panel">
+			{% block form %}
+			{% endblock %}
+	</div>
+{% endblock %}
+
+{% block _js %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('form').submit( function() {
+            alert('Hi');
+            return false;
+        })
+    });
+</script>
+{% endblock %}

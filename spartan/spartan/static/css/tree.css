@@ -1,0 +1,15 @@
+.dd a, .dd-content a{color: #fff;font-weight:400;font-family:LatoLight}
+.dd-list{list-style:none}
+.dd-list .dd-list{padding-left:30px;width:inherit}
+.dd li{margin:10px 0}
+.dd-handle,.dd-content{display:table-cell;padding:8px 15px}
+.dd-handle{background:rgba(0,0,0,0.9);color:#FFF;cursor:move;text-align:center;width:40px;border-radius:2px 0 0 2px}
+.dd-content{background:rgba(0,0,0,0.5);min-width:100px;padding-left:30px;width:100%;border-radius:0 2px 2px 0}
+.dd-placeholder{background:rgba(0,0,0,0.3);border:1px dashed rgba(0,0,0,0.4);margin: 10px 0;}
+.dd-dragel a{color:#FF7E00}
+.dd-dragel{pointer-events:none;position:absolute;z-index:9999}
+.dd-item > button{background: transparent;border:0;color:#FFF;cursor:pointer;font-size:16px;line-height:35px;margin-left:40px;overflow:hidden;padding:0;position:absolute;text-align:center;text-indent:100%;white-space:nowrap;width:25px}
+.dd-item > button:before {content: '+';display: block;position: absolute;width: 100%;text-align: center;text-indent: 0}
+.dd-item > button[data-action="collapse"]:before {content:'-'}
+.hidden .dd-content{background-color:rgba(0,0,0,0.2)}
+.hidden .dd-content a{color:#000;text-decoration:line-through}

@@ -1,0 +1,28 @@
+{% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
+
+
+{% block content %}
+<div class="panel">
+	<div class="wrapper">
+        <ul>
+        {% for account in accounts %}
+            <li class="list-item">
+                <a onclick="loadPage('{{ update_url }}/{{ account.id }}', '#body', $(this))">
+                    <div class="row">
+                        <div class="large-6 columns">{{ account.name }}</div>
+                        <div class="large-6 columns">{{ account.group.name }}</div>
+                    </div>
+                </a>
+            </li>    
+        {% endfor %}
+        </ul>
+	</div>
+
+    <div class="row">
+        <div class="large-12 columns button-bar">
+            <div class="button"><a onclick="loadPage('{{ create_url }}', '#body', $(this))">Nuevo</a></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

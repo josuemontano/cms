@@ -1,0 +1,13 @@
+.vertical-menu{background:#191F21;height:100%;left:0;list-style-type:none;margin:0;overflow:hidden;padding:0;position:fixed;top:0;z-index:9999}
+.vertical-menu li{position:relative}
+.vertical-menu li a{-moz-transition:background .40s ease-in-out;-webkit-transition:background .40s ease-in-out;color:#ececec;display:block;height:4em;line-height:4em;overflow:hidden;position:relative;text-align:center;text-indent:-500em;transition:background .40s ease-in-out;-ms-transition:background .40s ease-in-out;width:4em}
+.vertical-menu li a:hover, .vertical-menu li.active a{background:#414E54}
+.vertical-menu li a:hover{background:#0F1314}
+.vertical-menu li:first-child a{background:#0F1314;color:#922f25!important}
+.vertical-menu li:first-child a:hover{text-shadow:none}
+.vertical-menu li a:before{-webkit-font-smoothing:antialiased;font-size:1.4em;font-style:normal;font-weight:400;height:100%;left:0;position:absolute;speak:none;text-indent:0;top:0;width:100%}
+.vertical-menu li a.icon-logo:before{content:"S";font-family:LatoBlack;font-size:250%}
+.vertical-menu li .description{display:none}
+@media screen and (max-width: 50em) {
+.vertical-menu{font-size:80%}
+}

@@ -1,0 +1,51 @@
+{% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
+
+
+{% block content %}
+<div class="message"></div>
+<div class="panel">
+	<div class="wrapper">
+        <div class="dd" id="tree">
+            <ol class="dd-list">
+            {% for page in pages recursive %}
+                    <li class="dd-item{% if not page.show %} hidden{% endif %}" data-id="{{ page.id }}">
+                        <div class="dd-handle dd-handle">≡</div>
+                        <div class="dd-content">
+                            <a onclick="loadPage('{{ update_url }}/{{ page.id }}', '#body', $(this))">{{ page.name }}</a>
+                        </div>
+
+                        {% if page.has_children() %}
+                            <ol class="dd-list">
+                                {{ loop(page.children) }}
+                            </ol>
+                        {% endif %}
+                    </li>
+            {% endfor %}
+            </ol>
+        </div>
+	</div>
+
+    <div class="row">
+        <div class="large-12 columns button-bar">
+            <div class="button"><a onclick="loadPage('{{ create_url }}', '#body', $(this))">Nuevo</a></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $('#tree').nestable();
+        $('#tree').on('change', function(event) {
+            if (window.JSON) {
+                if(!$('.message').is(':visible')) $('.message').slideDown(600)
+                
+                var data = $('#tree').nestable('serialize')
+                $.post('{{ sort_url }}', { 'sort_string': window.JSON.stringify(data) }, function(response) {
+                    $('.message').html(response)
+                });
+            }
+        });
+        $('.message').slideUp(0);
+    });
+</script>
+{% endblock %}
