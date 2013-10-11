@@ -49,6 +49,7 @@ class Page (LoggedTable, Base):
         self.show_floating = show_floating
         self.parent        = parent
         self.set_slug()
+        self.append()
         
     def __str__(self):
         return self.name
@@ -62,6 +63,15 @@ class Page (LoggedTable, Base):
             if self.parent is not None:
                 root = self.parent.slug + '/'
             self.slug = root + ''.join(e for e in self.name.lower() if e.isalnum())
+
+    def append(self):
+        if self.slug is not None:
+            last_page = DBSession.query(Page).filter_by(parent = self.parent).order_by('-sort').first()
+            if last_page is not None:
+                self.sort = last_page.sort + 1
+            else:
+                self.sort = 1
+
 
 class Site (LoggedTable, Base):
     __tablename__ = 'site'

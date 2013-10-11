@@ -79,8 +79,8 @@ class PageFactory(BaseFactory):
     def populate_model(self, form, page):
         form.populate_obj(page)
         page.set_slug()
-
-
+        page.append()
+        
 class HomeFactory(object):
     def __init__(self, request):
         self.request = request
