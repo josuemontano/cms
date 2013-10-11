@@ -147,6 +147,7 @@
         $('#logo').redactor({
             lang: 'es',
             wym: true,
+            imageGetJson: '{{ request.application_url }}/files/images',
             imageUpload: '{{ request.application_url }}/files/upload/image',
             buttons: ['html', '|', 'image']
         });

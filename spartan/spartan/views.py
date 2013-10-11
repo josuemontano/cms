@@ -109,6 +109,16 @@ class FilesViews(object):
     def index (self):
         return { }
 
+    @view_config(route_name = 'files_get_images', renderer = 'json')
+    def get_images (self):
+        images      = os.listdir(os.path.join(self.here, 'static', 'uploads/images'))
+        images_list = []
+
+        for img in images:
+            i = self.request.static_url('spartan:static/uploads/images/' + img)
+            images_list.append(dict(thumb=i, image=i))
+        return images_list
+
     @view_config(route_name = 'files_upload_file', renderer = 'json')
     def upload_file (self):
         return { }

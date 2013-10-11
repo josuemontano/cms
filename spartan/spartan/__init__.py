@@ -46,6 +46,7 @@ def addroutes(config):
     config.add_route('site_update', '/site/update')
 
     config.add_route('files_index', '/files')
+    config.add_route('files_get_images', '/files/images')
     config.add_route('files_upload_file', '/files/upload/file')
     config.add_route('files_upload_image', '/files/upload/image')
 
