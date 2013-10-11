@@ -65,7 +65,7 @@ class Page (LoggedTable, Base):
             self.slug = root + ''.join(e for e in self.name.lower() if e.isalnum())
 
     def append(self):
-        if self.slug is not None:
+        if self.slug is not None and self.sort is None:
             last_page = DBSession.query(Page).filter_by(parent = self.parent).order_by('-sort').first()
             if last_page is not None:
                 self.sort = last_page.sort + 1
