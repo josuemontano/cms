@@ -48,9 +48,11 @@ def main(argv=sys.argv):
         DBSession.add(template_d)
 
         home_page = Page(name = 'Inicio', description = 'This is my home page', content = LOREM_IPSUM)
+        home_page.template = template_a
         DBSession.add(home_page)
 
         page_a = Page(name = 'Contactos', description = 'This is my contact page')
+        page_a.template = template_d
         DBSession.add(page_a)
 
         page_b = Page(name = 'Quienes somos', description = 'This is my about us page', content = LOREM_IPSUM)
