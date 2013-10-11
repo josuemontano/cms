@@ -26,7 +26,6 @@
         <script src="{{ request.static_url('demo:static/js/jquery.min.js') }}"></script>
         <script src="{{ request.static_url('demo:static/js/foundation/js/vendor/zepto.js') }}"></script>
         <script src="{{ request.static_url('demo:static/js/foundation/js/foundation.min.js') }}"></script>
-        <script src="{{ request.static_url('demo:static/js/redactor/lang/es.js') }}"></script>
 
         <script>
             $(function(){
@@ -37,16 +36,12 @@
     </head>
 
     <body>
-        {% include 'menu.html' %}
-
+        #- include 'menu.html'
         <div class="row">
             <div class="large-12 columns">
-                <div class="content">
-                    {% block content %}{% endblock %}
-                </div>
+                <div class="content">{% block content -%}{%- endblock %}</div>
             </div>
         </div>
-
-        {% include 'footer.html' %}
+        #- include 'footer.html'
     </body>
 </html>
