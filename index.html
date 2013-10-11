@@ -39,15 +39,46 @@
         <ul></ul>
       </nav>
       <section>
-        <h3>
-<a name="welcome-to-spartancms" class="anchor" href="#welcome-to-spartancms"><span class="octicon octicon-link"></span></a>Welcome to SpartanCMS.</h3>
+        <h1>
+<a name="spartancms" class="anchor" href="#spartancms"><span class="octicon octicon-link"></span></a>SpartanCMS</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>One of the best CMS I've found is <a href="http://www.silverstripe.org">SilverStripe</a>. But something more flexible was needed, so I wrote this content managment system in python 3.</p>
 
-<pre><code>$ cd your_repo_root/cms
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p>Much work is still ahead, documentation and some functionality is incomplete, but it works! Feel free to contribute.</p>
+
+<h1>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h1>
+
+<p>SpartanCMS is a web application written in Pyramid and uses:</p>
+
+<ul>
+<li>Pyramid 1.5a2 (obviously)</li>
+<li>Python 3</li>
+<li>SQLAlchemy</li>
+<li>PostgreSQL</li>
+<li>WTForms</li>
+<li>Jinja2</li>
+</ul><p>It is included an .htaccess file and a FGCI script as an example of how SpartanCMS can be deployed on the web over apache. To use these on a production enviroment you must <strong>install Flup for python 3</strong>. I use <a href="https://github.com/Pyha/flup-py3.3">flup-py3.3</a>.</p>
+
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<p>This software can be installed and run as any other Pyramid app. Once you have Python 3 and PostgreSQL installed follow these steps (I assume you have a virtual enviroment installed on your $HOME, called, let us say, <em>env</em>):</p>
+
+<ul>
+<li>Run PostgreSQL and create a new PostgreSQL database called <em>demo</em>
+</li>
+<li><code>cd $HOME/env/cms/spartan</code></li>
+<li><code>../../bin/python setup.py develop</code></li>
+<li><code>../../bin/initialize_spartan_db development.ini</code></li>
+<li><code>../../bin/pserve development.ini --reload</code></li>
+</ul><p>To run the demo site do:</p>
+
+<ul>
+<li><code>cd $HOME/env/cms/demo</code></li>
+<li><code>../../bin/python setup.py develop</code></li>
+<li><code>../../bin/pserve development.ini --reload</code></li>
+</ul>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/josuemontano">josuemontano</a></p>
