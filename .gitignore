@@ -7,3 +7,5 @@ __MACOSX
 Icon?
 ehthumbs.db
 Thumbs.db
+__pycache__
+*/__pycache__
