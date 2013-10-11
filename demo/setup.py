@@ -22,8 +22,8 @@ requires = [
     ]
 
 setup(name='demo',
-      version='0.0',
-      description='demo',
+      version='1.0',
+      description='Demo app for SpartanCMS',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Programming Language :: Python",
@@ -31,8 +31,8 @@ setup(name='demo',
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
         ],
-      author='',
-      author_email='',
+      author='Josue Montano',
+      author_email='josuemontanoa@gmail.com',
       url='',
       keywords='web wsgi bfg pylons pyramid',
       packages=find_packages(),

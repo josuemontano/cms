@@ -1,11 +1,11 @@
 {% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
 
 
-{% block content %}
+#- block content
 <div class="panel">
 	<div class="wrapper">
         <ul>
-        {% for account in accounts %}
+        #- for account in accounts:
             <li class="list-item">
                 <a onclick="loadPage('{{ update_url }}/{{ account.id }}', '#body', $(this))">
                     <div class="row">
@@ -14,7 +14,7 @@
                     </div>
                 </a>
             </li>    
-        {% endfor %}
+        #- endfor
         </ul>
 	</div>
 
@@ -24,5 +24,4 @@
         </div>
     </div>
 </div>
-
-{% endblock %}
+#- endblock

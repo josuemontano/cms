@@ -7,9 +7,11 @@ class SiteFactory(object):
         self.request = request
 
     def index(self):
-        site = DBSession.query(Site).get(1)
-        return { 'object' : site,
-                 'user'   : authenticated_userid(self.request) }
+        request = self.request
+        site    = DBSession.query(Site).get(1)
+        return { 'object'   : site,
+                 'user'     : authenticated_userid(request),
+                 'edit_url' : request.resource_url(request.root, 'site', 'update'), }
 
     def update(self):
         request = self.request

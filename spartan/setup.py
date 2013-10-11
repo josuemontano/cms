@@ -22,7 +22,7 @@ requires = [
 
 setup(name='spartan',
       version='1.0',
-      description='spartan',
+      description='A simple CMS',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Programming Language :: Python",

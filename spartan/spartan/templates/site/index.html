@@ -1,9 +1,7 @@
 {% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
 
-{% block title %} - Sitio{% endblock %}
-{% block pageTitle %}Sitio{% endblock %}
 
-{% block content %}
+#- block content
 <div class="panel">
 	<div class="wrapper">
 		<div class="row">
@@ -64,8 +62,8 @@
 
 	<div class="row">
 		<div class="large-12 columns button-bar">
-			<div class="button"><a onclick="loadPage('/site/update', '#body', $(this))">Modificar</a></div>
+			<div class="button"><a onclick="loadPage('{{ edit_url }}', '#body', $(this))">Modificar</a></div>
 		</div>
 	</div>
 </div>
-{% endblock %}
+#- endblock

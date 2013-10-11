@@ -1,26 +1,26 @@
 {% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% else %}{% extends 'templates/xhr_layout.html' %}{% endif %}
 
 
-{% block content %}
+#- block content
 <div class="message"></div>
 <div class="panel">
 	<div class="wrapper">
         <div class="dd" id="tree">
             <ol class="dd-list">
-            {% for page in pages recursive %}
+            #- for page in pages recursive:
                     <li class="dd-item{% if not page.show %} hidden{% endif %}" data-id="{{ page.id }}">
                         <div class="dd-handle dd-handle">≡</div>
                         <div class="dd-content">
                             <a onclick="loadPage('{{ update_url }}/{{ page.id }}', '#body', $(this))">{{ page.name }}</a>
                         </div>
 
-                        {% if page.has_children() %}
+                        #- if page.has_children():
                             <ol class="dd-list">
                                 {{ loop(page.children) }}
                             </ol>
-                        {% endif %}
+                        #- endif
                     </li>
-            {% endfor %}
+            #- endfor
             </ol>
         </div>
 	</div>
@@ -48,4 +48,4 @@
         $('.message').slideUp(0);
     });
 </script>
-{% endblock %}
+#- endblock

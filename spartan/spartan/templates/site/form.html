@@ -7,9 +7,9 @@
             <div class="large-9 columns">
                 {{ form.title }}
                 <ul class="errors">
-                    {% for error in form.title.errors %}
+                    #- for error in form.title.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
 
@@ -19,9 +19,9 @@
             <div class="large-9 columns">
                 {{ form.logo }}
                 <ul class="errors">
-                    {% for error in form.logo.errors %}
+                    #- for error in form.logo.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
         </div>
@@ -35,9 +35,9 @@
             <div class="large-9 columns">
                 {{ form.contact_mails }}
                 <ul class="errors">
-                    {% for error in form.contact_mails.errors %}
+                    #- for error in form.contact_mails.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
         </div>
@@ -50,9 +50,9 @@
             <div class="large-9 columns">
                 {{ form.facebook }}
                 <ul class="errors">
-                    {% for error in form.facebook.errors %}
+                    #- for error in form.facebook.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
 
@@ -62,9 +62,9 @@
             <div class="large-9 columns">
                 {{ form.twitter }}
                 <ul class="errors">
-                    {% for error in form.twitter.errors %}
+                    #- for error in form.twitter.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
 
@@ -74,9 +74,9 @@
             <div class="large-9 columns">
                 {{ form.youtube }}
                 <ul class="errors">
-                    {% for error in form.youtube.errors %}
+                    #- for error in form.youtube.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
 
@@ -86,9 +86,9 @@
             <div class="large-9 columns">
                 {{ form.ga_code }}
                 <ul class="errors">
-                    {% for error in form.ga_code.errors %}
+                    #- for error in form.ga_code.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
         </div>
@@ -101,9 +101,9 @@
             <div class="large-9 columns">
                 {{ form.meta_description }}
                 <ul class="errors">
-                    {% for error in form.meta_description.errors %}
+                    #- for error in form.meta_description.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
         </div>
@@ -114,9 +114,9 @@
             <div class="large-9 columns">
                 {{ form.meta_keywords }}
                 <ul class="errors">
-                    {% for error in form.meta_keywords.errors %}
+                    #- for error in form.meta_keywords.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
         </div>
@@ -127,9 +127,9 @@
             <div class="large-9 columns">
                 {{ form.meta_copyright }}
                 <ul class="errors">
-                    {% for error in form.meta_copyright.errors %}
+                    #- for error in form.meta_copyright.errors
                         <li>{{ error }}</li>
-                    {% endfor %}
+                    #- endfor
                 </ul>
             </div>
         </div>
@@ -147,7 +147,7 @@
         $('#logo').redactor({
             lang: 'es',
             wym: true,
-            imageUpload: '/files/upload/image',
+            imageUpload: '{{ request.application_url }}/files/upload/image',
             buttons: ['html', '|', 'image']
         });
     });
