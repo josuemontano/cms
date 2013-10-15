@@ -4,7 +4,7 @@ from pyramid.view import view_config
 from sqlalchemy.exc import DBAPIError
 
 from spartan.models.core import *
-from .models.meta import DBSession
+from .models import DBSession
 
 def not_found(request):
     request.response.status = 404
