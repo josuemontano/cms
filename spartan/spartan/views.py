@@ -1,10 +1,7 @@
-import urllib
-import os
-import uuid
-
 from pyramid.view import (view_config, forbidden_view_config, notfound_view_config)
 
 from spartan.factories.core import *
+from spartan.factories.extra import *
 from spartan.factories.security import *
 
 
@@ -103,48 +100,24 @@ class SiteViews(object):
 class FilesViews(object):
     def __init__(self, request):
         self.request = request
-        self.here    = os.path.dirname(__file__)
+        self.factory = FileFactory(request)
 
     @view_config(route_name = 'files_index', renderer = 'files/index.html')
     def index (self):
-        return { }
+        return self.factory.index()
 
     @view_config(route_name = 'files_get_images', renderer = 'json')
     def get_images (self):
-        images      = os.listdir(os.path.join(self.here, 'static', 'uploads/images'))
-        images_list = []
-
-        for img in images:
-            i = self.request.static_url('spartan:static/uploads/images/' + img)
-            images_list.append(dict(thumb=i, image=i))
-        return images_list
+        return self.factory.get_images()
 
     @view_config(route_name = 'files_upload_file', renderer = 'json')
     def upload_file (self):
-        return { }
+        return self.factory.upload_file()
 
     @view_config(route_name = 'files_upload_image', renderer = 'json')
     def upload_image (self):
-        filename   = self.request.POST['file'].filename
-        input_file = self.request.POST['file'].file
+        return self.factory.upload_image()
 
-        name = '%s.jpg' % uuid.uuid4()
-        file_path      = os.path.join(self.here, 'static', 'uploads/images', name)
-        temp_file_path = file_path + '~'
-        output_file    = open(temp_file_path, 'wb')
-
-        input_file.seek(0)
-        while True:
-            data = input_file.read(2<<16)
-            if not data:
-                break
-            output_file.write(data)
-        output_file.close()
-        os.rename(temp_file_path, file_path)
-
-
-        link = self.request.static_url('spartan:static/uploads/images/' + name)
-        return { 'filelink': link, 'filename': name }
 
 
 class AccountsViews(object):

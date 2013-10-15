@@ -51,15 +51,15 @@ def main(argv=sys.argv):
         home_page.template = template_a
         DBSession.add(home_page)
 
-        page_a = Page(name = 'Contactos', description = 'This is my contact page')
-        page_a.template = template_d
+        page_a = Page(name = 'Quienes somos', description = 'This is my about us page', content = LOREM_IPSUM)
         DBSession.add(page_a)
 
-        page_b = Page(name = 'Quienes somos', description = 'This is my about us page', content = LOREM_IPSUM)
+        page_a1 = Page(name = 'Nuestras actividades', description = 'This is my about us page', content = LOREM_IPSUM, parent = page_a)
+        DBSession.add(page_a1)
+
+        page_b = Page(name = 'Noticias', description = 'This is my news page', content = LOREM_IPSUM)
         DBSession.add(page_b)
 
-        page_b1 = Page(name = 'Nuestras actividades', description = 'This is my about us page', content = LOREM_IPSUM, parent = page_b)
-        DBSession.add(page_b1)
-
-        page_c = Page(name = 'Noticias', description = 'This is my news page', content = LOREM_IPSUM)
+        page_c = Page(name = 'Contactos', description = 'This is my contact page')
+        page_c.template = template_d
         DBSession.add(page_c)

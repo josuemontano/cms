@@ -82,19 +82,4 @@ class PageFactory(BaseFactory):
         form.populate_obj(page)
         page.set_slug()
         page.append()
-        
-class HomeFactory(object):
-    def __init__(self, request):
-        self.request = request
-
-    def index(self):
-        from .security import User
-
-        pages = DBSession.query(Page).order_by(Page.sort).all()
-        site  = DBSession.query(Site).first()
-        users = DBSession.query(User).all()
-        return { 'site'  : site,
-                 'pages' : pages,
-                 'users' : users,
-                 'user'  : authenticated_userid(self.request) }
     
