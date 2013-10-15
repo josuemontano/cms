@@ -1,7 +1,7 @@
 from pyramid.config import Configurator
 from sqlalchemy import engine_from_config
 
-from demo.models.meta import (DBSession, Base)
+from .models.meta import (DBSession, Base)
 from .route import (page_exists, factory)
 from .views import (not_found, index)
 

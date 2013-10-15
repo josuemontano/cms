@@ -1,4 +1,4 @@
-from demo.models.meta import DBSession
+from .models.meta import DBSession
 from spartan.models.core import Page
 
 def get_url(info):
