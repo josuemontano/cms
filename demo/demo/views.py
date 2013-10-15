@@ -3,7 +3,7 @@ from pyramid.view import view_config
 
 from sqlalchemy.exc import DBAPIError
 
-from demo.models.core import *
+from spartan.models.core import *
 from demo.models.meta import DBSession
 
 def not_found(request):

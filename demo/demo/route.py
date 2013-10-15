@@ -1,5 +1,5 @@
 from demo.models.meta import DBSession
-from demo.models.core import Page
+from spartan.models.core import Page
 
 def get_url(info):
     url = info['match']['url']
