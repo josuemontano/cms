@@ -9,7 +9,7 @@ Base      = declarative_base()
 DBSession = scoped_session(sessionmaker(autoflush = True, autocommit = False, extension = ZopeTransactionExtension()))
 
 
-class LoggedTable (object):
+class MixinTable (object):
     @declared_attr
     def created(_class):
         return Column(DateTime, nullable = False, default = datetime.datetime.now)

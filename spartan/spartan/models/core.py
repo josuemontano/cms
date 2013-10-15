@@ -18,7 +18,7 @@ class PageTemplate (Base):
         return self.name
 
 
-class Page (LoggedTable, Base):
+class Page (MixinTable, Base):
     __tablename__ = 'pages'
     
     id          	 = Column(Integer, primary_key = True, autoincrement = True)
@@ -30,6 +30,7 @@ class Page (LoggedTable, Base):
 
     description 	 = Column(String)
     content     	 = Column(String)
+    slideshow        = Column(String)
     show        	 = Column(Boolean, default = True, nullable = False)
     searchable       = Column(Boolean, default = True, nullable = False)
     
@@ -73,7 +74,7 @@ class Page (LoggedTable, Base):
                 self.sort = 1
 
 
-class Site (LoggedTable, Base):
+class Site (MixinTable, Base):
     __tablename__ = 'site'
     
     id               = Column(Integer, primary_key = True, autoincrement = True)

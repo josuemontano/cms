@@ -4,7 +4,7 @@ from .meta import *
 
 crypt = cryptacular.bcrypt.BCRYPTPasswordManager()
 
-class Group (LoggedTable, Base):
+class Group (MixinTable, Base):
     __tablename__ = 'groups'
     
     id   = Column(Integer, primary_key = True, autoincrement = True)
@@ -17,7 +17,7 @@ class Group (LoggedTable, Base):
         return self.name
 
 
-class User (LoggedTable, Base):
+class User (MixinTable, Base):
     __tablename__ = 'users'
     
     id          = Column(Integer, primary_key = True, autoincrement = True)

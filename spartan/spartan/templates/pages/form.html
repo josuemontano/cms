@@ -43,6 +43,21 @@
         <hr>
         <div class="row">
             <div class="large-3 columns label">
+                <p>{{ form.slideshow.label }}</p>
+            </div>
+            <div class="large-9 columns">
+                {{ form.slideshow }}
+                <ul class="errors">
+                    #- for error in form.slideshow.errors:
+                        <li>{{ error }}</li>
+                    #- endfor
+                </ul>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row">
+            <div class="large-3 columns label">
                 <p>{{ form.show.label }}*</p>
             </div>
             <div class="large-3 columns end">
@@ -130,6 +145,16 @@
             imageGetJson: '{{ request.application_url }}/files/images',
             imageUpload: '{{ request.application_url }}/files/upload/image',
             buttons: ['html', '|', 'formatting', '|', 'bold', 'italic', 'deleted', 'underline', '|', 'unorderedlist', 'orderedlist', 'outdent', 'indent', '|', 'image', 'file', 'table', 'link', '|', 'fontcolor', 'backcolor', '|', 'alignment', '|', 'horizontalrule']
+        });
+
+        $('#slideshow').redactor({
+            lang: 'es',
+            wym: true,
+            toolbarFixed: true,
+            toolbarFixedBox: '#slideshow',
+            imageGetJson: '{{ request.application_url }}/files/images',
+            imageUpload: '{{ request.application_url }}/files/upload/image',
+            buttons: ['html', '|', 'image']
         });
 
         $('#floating_content').redactor({

@@ -18,7 +18,7 @@ class PageTemplate (Base):
         return self.name
 
 
-class Page (LoggedTable, Base):
+class Page (MixinTable, Base):
     __tablename__ = 'pages'
     
     id          	 = Column(Integer, primary_key = True, autoincrement = True)
@@ -30,6 +30,7 @@ class Page (LoggedTable, Base):
 
     description 	 = Column(String)
     content     	 = Column(String)
+    slideshow        = Column(String)
     show        	 = Column(Boolean, default = True, nullable = False)
     searchable       = Column(Boolean, default = True, nullable = False)
     
@@ -49,6 +50,7 @@ class Page (LoggedTable, Base):
         self.show_floating = show_floating
         self.parent        = parent
         self.set_slug()
+        self.append()
         
     def __str__(self):
         return self.name
@@ -63,7 +65,16 @@ class Page (LoggedTable, Base):
                 root = self.parent.slug + '/'
             self.slug = root + ''.join(e for e in self.name.lower() if e.isalnum())
 
-class Site (LoggedTable, Base):
+    def append(self):
+        if self.slug is not None and self.sort is None:
+            last_page = DBSession.query(Page).filter_by(parent = self.parent).order_by('-sort').first()
+            if last_page is not None:
+                self.sort = last_page.sort + 1
+            else:
+                self.sort = 1
+
+
+class Site (MixinTable, Base):
     __tablename__ = 'site'
     
     id               = Column(Integer, primary_key = True, autoincrement = True)

@@ -4,6 +4,7 @@ class PageForm (Form):
     name             = TextField('Nombre', [InputRequired(message = BLANK_REQUIRED), length(max = 300)])
     description      = TextField('Descripci&oacute;n')
     content          = TextAreaField('Contenido')
+    slideshow        = TextAreaField('Im&aacute;genes para slideshow')
     show             = BooleanField('Mostrar')
     searchable       = BooleanField('Incluir en b&uacute;squeda')
     template_id      = SelectField('Tipo', [InputRequired(message = BLANK_REQUIRED)], coerce = int)
