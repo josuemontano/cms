@@ -1,0 +1,19 @@
+header .logo p{
+margin:0;
+}
+
+header ul{text-align: center;background-color:#000;margin:0;padding:1em}
+header ul li{list-style:none;display:inline;padding:0 1em}
+header ul li a{color:#fff;text-decoration:none;}
+
+.content{
+    padding:2em 0;
+    text-align:justify;
+}
+
+.content h1{border-top:1px #000 solid;border-bottom:1px #000 solid;padding:0.5em;margin-bottom:1em}
+
+footer{
+    background-color: #e0e0e0;
+    padding:1em 5em;
+}

@@ -1,0 +1,10 @@
+# extends 'templates/layout.html'
+
+
+#- block content
+<div class="slideshow">
+    {{ page.slideshow|safe }}
+</div>
+<hr>
+{{ page.content|safe }}
+#- endblock

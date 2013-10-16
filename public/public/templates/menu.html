@@ -1,0 +1,19 @@
+<header>
+    <div class="row">
+        <div class="large-3 columns">
+            <div class="logo">
+                {{ site.logo|safe }}
+            </div>
+        </div>
+
+        <div class="large-9 columns">
+            <nav>
+                <ul>
+                    #- for item in tree:
+                        <li><a href="{{ request.application_url }}{{ item.slug }}">{{ item.name }}</a></li>
+                    #- endfor
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
