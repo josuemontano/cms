@@ -8,7 +8,8 @@ from .models import DBSession
 
 def not_found(request):
     request.response.status = 404
-    return { }
+    site = DBSession.query(Site).first()
+    return { 'site' : site, }
 
 
 @view_config(route_name = 'dispatcher', renderer = 'index.html')
