@@ -30,9 +30,9 @@ This software can be installed and run as any other Pyramid app. Once you have P
 * ``` ../../bin/initialize_spartan_db development.ini ```
 * ``` ../../bin/pserve development.ini --reload ```
 
-To run the demo site do:
-* ``` cd $HOME/env/cms/demo ```
+To run the public demo site do:
+* ``` cd $HOME/env/cms/public ```
 * ``` ../../bin/python setup.py develop ```
 * ``` ../../bin/pserve development.ini --reload ```
 
-**Important:** The demo package imports some models from spartan, so make sure spartan is properly installed.
+**Important:** The public package imports some models from spartan, so make sure spartan is properly installed.
