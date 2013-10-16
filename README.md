@@ -34,3 +34,5 @@ To run the demo site do:
 * ``` cd $HOME/env/cms/demo ```
 * ``` ../../bin/python setup.py develop ```
 * ``` ../../bin/pserve development.ini --reload ```
+
+**Important:** The demo package imports some models from spartan, so make sure spartan is properly installed.
