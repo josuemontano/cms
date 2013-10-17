@@ -6,7 +6,6 @@
 @font-face{font-family: LatoLight;src: url('../fonts/Lato-Lig.ttf') format('truetype')}
 @font-face{font-family: LatoBlack;src: url('../fonts/Lato-Bla.ttf') format('truetype')}
 
-
 body{background-color:#414E54;margin-left:4em!important}
 a{cursor:pointer;font-family:LatoRegular;color:#922f25}
 p{font-family:LatoRegular;margin:0 0 1em}
