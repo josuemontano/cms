@@ -7,9 +7,6 @@ from pyramid.security import (authenticated_userid, remember, forget)
 from sqlalchemy.sql import null
 from sqlalchemy.exc import (DBAPIError, IntegrityError, SQLAlchemyError)
 
-from spartan.models.core import *
-from spartan.forms.core import *
-
 
 UPDATED_MESSAGE    = 'Sus cambios se guardaron exitosamente'
 FORMERRORS_MESSAGE = 'Por favor corrija los errores indicados'

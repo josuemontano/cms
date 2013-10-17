@@ -3,6 +3,7 @@ import uuid
 
 from .meta import *
 
+
 class HomeFactory(object):
     def __init__(self, request):
         self.request = request

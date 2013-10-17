@@ -3,6 +3,7 @@ from pyramid.view import (view_config, forbidden_view_config, notfound_view_conf
 from spartan.factories.core import *
 from spartan.factories.extra import *
 from spartan.factories.security import *
+from spartan.factories.custom import *
 
 
 @forbidden_view_config(renderer = '403.html')

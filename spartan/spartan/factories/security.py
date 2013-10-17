@@ -3,6 +3,7 @@ from .meta import *
 from spartan.models.security import *
 from spartan.forms.security import *
 
+
 class UserFactory (object):
     def __init__(self, request):
         self.request = request

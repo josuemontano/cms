@@ -2,16 +2,21 @@ import json
 
 from .meta import *
 
+from spartan.models.core import *
+from spartan.forms.core import *
+
+
 class SiteFactory(object):
     def __init__(self, request):
         self.request = request
+        self.baseUrl = 'site'
 
     def index(self):
         request = self.request
         site    = DBSession.query(Site).get(1)
         return { 'object'   : site,
                  'user'     : authenticated_userid(request),
-                 'edit_url' : request.resource_url(request.root, 'site', 'update'), }
+                 'edit_url' : request.resource_url(request.root, self.baseUrl, 'update'), }
 
     def update(self):
         request = self.request
@@ -30,7 +35,7 @@ class SiteFactory(object):
                 message = FORMERRORS_MESSAGE
 
         return { 'form'     : form,
-                 'save_url' : request.resource_url(request.root, 'site', 'update'),
+                 'save_url' : request.resource_url(request.root, self.baseUrl, 'update'),
                  'message'  : message,
                  'user'     : authenticated_userid(request) }
 
@@ -47,10 +52,11 @@ class PageFactory(BaseFactory):
         pages   = DBSession.query(Page).filter_by(parent_id = None).order_by(Page.sort).all()
         
         return { 'pages'      : pages,
-                 'create_url' : request.resource_url(request.root, 'pages', 'create'),
-                 'update_url' : request.resource_url(request.root, 'pages', 'update'),
-                 'sort_url'   : request.resource_url(request.root, 'pages', 'sort'),
+                 'create_url' : request.resource_url(request.root, self.baseUrl, 'create'),
+                 'update_url' : request.resource_url(request.root, self.baseUrl, 'update'),
+                 'sort_url'   : request.resource_url(request.root, self.baseUrl, 'sort'),
                  'user'       : authenticated_userid(request) }
+
 
     def sort(self):
         request = self.request
