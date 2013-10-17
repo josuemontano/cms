@@ -1,5 +1,6 @@
 from .meta import *
 
+
 class PageForm (Form):
     name             = TextField('Nombre', [InputRequired(message = BLANK_REQUIRED), length(max = 300)])
     description      = TextField('Descripci&oacute;n')
