@@ -24,6 +24,9 @@ hr{border-top: 1px solid #414E54;margin-top:0.5em}
 .content .panel .button-bar{background-color:#922f25}
 .content .panel .list-item{list-style:none;background-color:rgba(0,0,0,0.5);margin:10px 0;padding:8px;border-radius:2px}
 .content .panel .list-item a{color:#fff;font-family:LatoLight}
+.content .search{text-align:right}
+.content .search input{width:100%;font-family:LatoLight;background-color:rgba(0,0,0,0.2);padding:0.5em 1em;border-radius:20px;border:none;font-size:0.8em;margin-right:-1em;margin-bottom:2em;color:#fff}
+.content .search input:focus{outline:none}
 .content .form-panel .wrapper{padding:4em 3em}
 .centered-title{text-align:center}
 .message{padding:1em;background-color:#23648C;color:#CFD2D5;font-family:LatoLight;}
