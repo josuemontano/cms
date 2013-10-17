@@ -2,6 +2,7 @@ from pyramid.security import (ALL_PERMISSIONS, Allow)
 
 from spartan.models.security import User
 
+
 class EntryFactory(object):
     __name__ = ''
     __acl__  = [(Allow, 'g:editors', ('view', 'edit')),

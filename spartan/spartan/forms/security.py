@@ -1,5 +1,6 @@
 from .meta import *
 
+
 class LoginForm (Form):
     username = TextField('Usuario', [InputRequired(message = BLANK_USERNAME), Length(max = 255)])
     password = PasswordField('Contrase&ntilde;a', [InputRequired(message = BLANK_PASSWORD), Length(max = 60)])

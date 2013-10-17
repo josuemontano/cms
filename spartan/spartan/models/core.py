@@ -1,5 +1,6 @@
 from .meta import *
 
+
 class PageTemplate (Base):
     __tablename__ = 'page_templates'
     

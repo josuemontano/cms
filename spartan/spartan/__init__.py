@@ -7,6 +7,7 @@ from pyramid.authorization import ACLAuthorizationPolicy
 from spartan.models.meta import (DBSession, Base)
 from .security import (EntryFactory, groupfinder)
 
+
 def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
