@@ -32,7 +32,7 @@
         <script src="{{ request.static_url('spartan:static/js/redactor/lang/es.js') }}"></script>
 
         <script>
-    	    $(function(){
+            $(function(){
                 $(document).foundation();
                 $(document).on({
                     mouseenter : function () {
@@ -41,7 +41,7 @@
                     mouseleave : function () {
                     }
                 }, '.message');
-    	    });
+            });
 
 
             function switchMenu(sender){
@@ -58,13 +58,13 @@
                 });
             }
 
-    	</script>
-    	{% block js %}{% endblock %}
+        </script>
+        {% block js %}{% endblock %}
     </head>
 
     <body>
         # include 'menu.html'
-        
+
         <div class="content">
             <div class="wrapper">
                 <div id="body" class="noise">
