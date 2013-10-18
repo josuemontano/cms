@@ -30,7 +30,23 @@
         <script>
             $(function(){
                 $(document).foundation();
+
+                if (window.location == '{{ request.application_url }}/')
+                    $('header nav li:first').addClass('active');
+                else {
+                    $('header nav li a').each(function(){
+                        var href = $(this).attr('href');
+                        if (window.location == encodeURI(href) || window.location == encodeURI(href) + '/')
+                            $(this).parent().addClass('active');
+                    });
+                }
             });
+
+            function loadPage(url, sender, target){
+                $(target).load(url);
+                $(sender).parent().siblings().removeClass('active');
+                $(sender).parent().addClass('active');
+            }
         </script>
         {% block js %}{% endblock %}
     </head>
