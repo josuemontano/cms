@@ -2,7 +2,6 @@ import json
 
 from .meta import *
 
-from spartan.models.core import *
 from spartan.forms.core import *
 
 
