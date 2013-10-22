@@ -10,7 +10,7 @@ Dependencies
 
 SpartanCMS is a web application written in Pyramid and uses:
 
-* Pyramid 1.5a2 and Python 3(obviously)
+* Pyramid 1.5a2 and Python 3 (obviously)
 * SQLAlchemy
 * PostgreSQL
 * WTForms
