@@ -2,23 +2,19 @@
 #- if user:
     <li><a onclick="loadPage('{{ request.application_url }}', '#body', $(this))" class="icon-logo"></a></li>
     <li>
-        <a onclick="loadPage('{{ request.application_url }}/pages', '#body', $(this))" class="foundicon-edit"></a>
+        <a onclick="loadPage('{{ request.application_url }}/pages', '#body', $(this))" class="icon-tree"></a>
         <p class="description">P&aacute;ginas</p>
     </li>
     <li>
-        <a onclick="loadPage('{{ request.application_url }}/products', '#body', $(this))" class="foundicon-cake"></a>
-        <p class="description">Productos</p>
-    </li>
-    <li>
-        <a onclick="loadPage('{{ request.application_url }}/site', '#body', $(this))" class="foundicon-globe"></a>
+        <a onclick="loadPage('{{ request.application_url }}/site', '#body', $(this))" class="icon-settings"></a>
         <p class="description">Sitio</p>
     </li>
     <li>
-        <a onclick="loadPage('{{ request.application_url }}/accounts', '#body', $(this))" class="foundicon-people"></a>
+        <a onclick="loadPage('{{ request.application_url }}/accounts', '#body', $(this))" class="icon-users"></a>
         <p class="description">Usuarios</p>
     </li>
     <li>
-        <a href="{{ request.application_url }}/logout" class="foundicon-left-arrow"></a>
+        <a href="{{ request.application_url }}/logout" class="icon-exit"></a>
         <p class="description">Salir</p>
     </li>
 #- else:

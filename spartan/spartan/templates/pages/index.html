@@ -29,7 +29,7 @@
             <ol class="dd-list">
             #- for page in pages recursive:
                     <li class="dd-item{% if not page.show %} hidden{% endif %}" data-id="{{ page.id }}">
-                        <div class="dd-handle dd-handle">≡</div>
+                        <div class="dd-handle dd-handle"><span class="{% if not page.show %}icon-eye-blocked{% else %}icon-menu{% endif %}"></span></div>
                         <div class="dd-content">
                             <a onclick="loadPage('{{ update_url }}/{{ page.id }}', '#body', $(this))">{{ page.name }}</a>
                         </div>
