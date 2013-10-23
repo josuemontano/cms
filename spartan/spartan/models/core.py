@@ -38,7 +38,7 @@ class Page (MixinTable, Base):
     floating_content = Column(String)
     show_floating    = Column(Boolean, default = False, nullable = False)
     
-    template         = relationship('PageTemplate')
+    template         = relationship(PageTemplate)
     children         = relationship('Page', backref=backref('parent', remote_side=[id]), order_by='Page.sort')
 
     def __init__(self, name = None, template_id = 2, description = None, content = None, show = True, searchable = True, show_floating = False, parent = None):

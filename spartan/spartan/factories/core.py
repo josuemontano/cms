@@ -5,7 +5,7 @@ from .meta import *
 from spartan.forms.core import *
 
 
-class SiteFactory(object):
+class SiteFactory (object):
     def __init__(self, request):
         self.request = request
         self.baseUrl = 'site'
@@ -39,7 +39,7 @@ class SiteFactory(object):
                  'user'     : authenticated_userid(request) }
 
 
-class PageFactory(BaseFactory):
+class PageFactory (BaseFactory):
     def __init__(self, request):
         self.request    = request        
         self.baseUrl    = 'pages'
