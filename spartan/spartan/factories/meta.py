@@ -19,9 +19,16 @@ class BaseFactory(object):
     baseUrl     = None
     formClass   = None
     modelClass  = None
+    items       = None
 
     def __init__(self, request):
         self.request = request
+        
+        return { 'items'      : self.items,
+                 'create_url' : request.resource_url(request.root, self.baseUrl, 'create'),
+                 'update_url' : request.resource_url(request.root, self.baseUrl, 'update'),
+                 'sort_url'   : request.resource_url(request.root, self.baseUrl, 'sort'),
+                 'user'       : authenticated_userid(request) }
 
     def create(self):
         request = self.request

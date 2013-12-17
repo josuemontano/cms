@@ -19,6 +19,7 @@ requires = [
     'waitress',
     'pyramid_jinja2',
     'psycopg2',
+    'WTForms'
     ]
 
 setup(name='public',

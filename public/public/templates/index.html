@@ -1,1 +1,5 @@
-# extends 'templates/base/' + page.template.filename
+{% if page.parent_id == None %}
+    {% extends 'templates/base/' + page.template.filename %}
+{% else %}
+    {% extends 'templates/base/children/' + page.template.filename %}
+{% endif %}
