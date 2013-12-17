@@ -23,12 +23,15 @@ class BaseFactory(object):
 
     def __init__(self, request):
         self.request = request
-        
+
+
+    def index(self):
+        request = self.request
         return { 'items'      : self.items,
                  'create_url' : request.resource_url(request.root, self.baseUrl, 'create'),
                  'update_url' : request.resource_url(request.root, self.baseUrl, 'update'),
-                 'sort_url'   : request.resource_url(request.root, self.baseUrl, 'sort'),
                  'user'       : authenticated_userid(request) }
+
 
     def create(self):
         request = self.request
