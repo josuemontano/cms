@@ -1,7 +1,6 @@
 import json
 
 from .meta import *
-
 from spartan.forms.core import *
 
 
