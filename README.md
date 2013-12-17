@@ -12,11 +12,11 @@ SpartanCMS is a web application written in Pyramid and uses:
 
 * Pyramid 1.5a2 and Python 3 (obviously)
 * SQLAlchemy
-* PostgreSQL
+* PostgreSQL (or SQLite)
 * WTForms
 * Jinja2
 * cryptacular
-* psycopg2
+* psycopg2 (not needed if using SQLite)
 
 It is included an .htaccess file and a FGCI script as an example of how SpartanCMS can be deployed on the web over apache. To use these on a production enviroment you must **install Flup for python 3**. I use [flup-py3.3](https://github.com/Pyha/flup-py3.3).
 
