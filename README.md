@@ -10,7 +10,7 @@ Dependencies
 
 SpartanCMS is a web application built with:
 
-* Pyramid and Python 3 (obviously)
+* [Pyramid](http://www.pylonsproject.org/projects/pyramid/about) and Python 3
 * SQLAlchemy
 * PostgreSQL (it's the default DBMS)
 * WTForms
@@ -36,6 +36,6 @@ To run the public demo site do:
 * ``` ../../bin/python setup.py develop ```
 * ``` ../../bin/pserve development.ini --reload ```
 
-I'm a big fun of [OpenShift](http://www.openshift.com), it's simply the best PaaS out there, I believe. It is hosting some web pages I made with SpartanCMS. To install this app, and any other Pyramid app, on OpenShift view my project [OpenshiftStarter](http://github.com/josuemontano/OpenshiftStarter).
-
 **Important:** The public package imports some models from spartan, so make sure spartan is properly installed.
+
+I'm a big fun of [OpenShift](http://www.openshift.com), it's simply the best PaaS out there, I believe. It is hosting some web pages I made with SpartanCMS. To install this app, and any other Pyramid app, on OpenShift view my project [OpenshiftStarter](http://github.com/josuemontano/OpenshiftStarter).
