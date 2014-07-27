@@ -8,17 +8,17 @@ Much work is still ahead, documentation and some functionality is incomplete, bu
 Dependencies
 ===
 
-SpartanCMS is a web application written in Pyramid and uses:
+SpartanCMS is a web application built with:
 
-* Pyramid 1.5a2 and Python 3 (obviously)
+* Pyramid and Python 3 (obviously)
 * SQLAlchemy
-* PostgreSQL (or SQLite)
+* PostgreSQL (it's the default DBMS)
 * WTForms
 * Jinja2
-* cryptacular
-* psycopg2 (not needed if using SQLite)
+* cryptography
+* psycopg2 (change it to your DMBS library in case you won't use PostgreSQL)
 
-It is included an .htaccess file and a FGCI script as an example of how SpartanCMS can be deployed on the web over apache. To use these on a production enviroment you must **install Flup for python 3**. I use [flup-py3.3](https://github.com/Pyha/flup-py3.3).
+It is included an .htaccess file and a FGCI script as an example of how SpartanCMS can be deployed on the web over an Apache web server. To use these on a production enviroment you must **install Flup for python 3**. I use [flup-py3.3](https://github.com/Pyha/flup-py3.3).
 
 Installation
 ===
@@ -35,5 +35,7 @@ To run the public demo site do:
 * ``` cd $HOME/env/cms/public ```
 * ``` ../../bin/python setup.py develop ```
 * ``` ../../bin/pserve development.ini --reload ```
+
+I'm a big fun of [OpenShift](http://www.openshift.com), it's simply the best PaaS out there, I believe. It is hosting some web pages I made with SpartanCMS. To install this app, and any other Pyramid app, on OpenShift view my project [OpenshiftStarter](http://github.com/josuemontano/OpenshiftStarter).
 
 **Important:** The public package imports some models from spartan, so make sure spartan is properly installed.
