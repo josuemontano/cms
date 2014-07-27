@@ -42,23 +42,25 @@
         <h1>
 <a name="spartancms" class="anchor" href="#spartancms"><span class="octicon octicon-link"></span></a>SpartanCMS</h1>
 
-<p>One of the best CMS I've found is <a href="http://www.silverstripe.org">SilverStripe</a>. But something more flexible was needed, so I wrote this content managment system in python 3.</p>
+<p>One of the best CMS I've found is <a href="http://www.silverstripe.org">SilverStripe</a>. But something more flexible was needed, so I wrote this content managment system in python.</p>
 
 <p>Much work is still ahead, documentation and some functionality is incomplete, but it works! Feel free to contribute.</p>
 
 <h1>
 <a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h1>
 
-<p>SpartanCMS is a web application written in Pyramid and uses:</p>
+<p>SpartanCMS is a web application built with:</p>
 
 <ul>
-<li>Pyramid 1.5a2 (obviously)</li>
-<li>Python 3</li>
+<li>
+<a href="http://www.pylonsproject.org/projects/pyramid/about">Pyramid</a> and Python 3</li>
 <li>SQLAlchemy</li>
-<li>PostgreSQL</li>
+<li>PostgreSQL (it's the default DBMS)</li>
 <li>WTForms</li>
 <li>Jinja2</li>
-</ul><p>It is included an .htaccess file and a FGCI script as an example of how SpartanCMS can be deployed on the web over apache. To use these on a production enviroment you must <strong>install Flup for python 3</strong>. I use <a href="https://github.com/Pyha/flup-py3.3">flup-py3.3</a>.</p>
+<li>cryptography</li>
+<li>psycopg2 (change it to your DMBS library in case you won't use PostgreSQL)</li>
+</ul><p>It is included an .htaccess file and a FGCI script as an example of how SpartanCMS can be deployed on the web over an Apache web server. To use these on a production enviroment you must <strong>install Flup for python 3</strong>. I use <a href="https://github.com/Pyha/flup-py3.3">flup-py3.3</a>.</p>
 
 <h1>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
@@ -72,13 +74,15 @@
 <li><code>../../bin/python setup.py develop</code></li>
 <li><code>../../bin/initialize_spartan_db development.ini</code></li>
 <li><code>../../bin/pserve development.ini --reload</code></li>
-</ul><p>To run the demo site do:</p>
+</ul><p>To run the public demo site do:</p>
 
 <ul>
-<li><code>cd $HOME/env/cms/demo</code></li>
+<li><code>cd $HOME/env/cms/public</code></li>
 <li><code>../../bin/python setup.py develop</code></li>
 <li><code>../../bin/pserve development.ini --reload</code></li>
-</ul>
+</ul><p><strong>Important:</strong> The public package imports some models from spartan, so make sure spartan is properly installed.</p>
+
+<p>I'm a big fun of <a href="http://www.openshift.com">OpenShift</a>, it's simply the best PaaS out there, I believe. It is hosting some web pages I made with SpartanCMS. To install this app, and any other Pyramid app, on OpenShift view my project <a href="http://github.com/josuemontano/OpenshiftStarter">OpenshiftStarter</a>.</p>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/josuemontano">josuemontano</a></p>
