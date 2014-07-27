@@ -15,5 +15,4 @@ class EntryFactory(object):
 def groupfinder(userid, request):
     user = User.by_name(userid)
     if user is not None:
-        ans = ['g:%s' % user.group.name]
-        return ans
+        return ['g:%s' % user.group.name]

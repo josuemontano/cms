@@ -18,15 +18,17 @@ def usage(argv):
     sys.exit(1)
 
 
-def main(argv=sys.argv):
+def main(argv = sys.argv):
     if len(argv) != 2:
         usage(argv)
     config_uri = argv[1]
     setup_logging(config_uri)
     settings = get_appsettings(config_uri)
-    engine = engine_from_config(settings, 'sqlalchemy.')
-    DBSession.configure(bind=engine)
+    engine   = engine_from_config(settings, 'sqlalchemy.')
+    
+    DBSession.configure(bind = engine)
     Base.metadata.create_all(engine)
+
     with transaction.manager:
         site = Site('Example', 'josuemontanoa@gmail.com; josue@talentoscreativos.com', ga_code = 'UA-XXXXXX-XX')
         DBSession.add(site)
@@ -36,12 +38,12 @@ def main(argv=sys.argv):
         DBSession.add(group_a)
         DBSession.add(group_b)
 
-        admin = User('josuemontanoa@gmail.com', '$2a$10$5ZMcPETX/dioXjFWzh29K.SIHmxWVYuYiMl1rblB5zZdol4fCE8E.', group_a)
+        admin = User('josuemontanoa@gmail.com', 'admin1234', group_a)
         DBSession.add(admin)
 
         template_a = PageTemplate('Inicio', 'home.html')
         template_b = PageTemplate('Contenido', 'content.html')
-        template_c = PageTemplate('Galleria de video e imagenes', 'gallery.html')
+        template_c = PageTemplate('Galeria de video e imagenes', 'gallery.html')
         template_d = PageTemplate('Contacto', 'contact.html')
         DBSession.add(template_a)
         DBSession.add(template_b)

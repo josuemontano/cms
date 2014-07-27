@@ -14,13 +14,17 @@ class UserFactory (object):
         form    = LoginForm(request.POST)
 
         if request.method == 'POST' and form.validate():
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            if User.check_password(username, password):
+            username         = request.POST.get('username')
+            password         = request.POST.get('password')
+            isAuth, disabled = User.check_password(username, password)
+            if isAuth:
                 headers = remember(request, username)
                 return HTTPFound(location = next, headers = headers)
             else:
-                message = 'Su nombre de usuario y/o contrase&ntilde;a son incorrectos. Por favor verif&iacute;quelos e intente nuevamente'
+                if disabled:
+                    message = 'Su cuenta ha sido bloqueada'
+                else:
+                    message = 'Su nombre de usuario y/o contrase&ntilde;a son incorrectos. Por favor verif&iacute;quelos e intente nuevamente'
                 
         return { 'form'     : form,
                  'next'     : next,

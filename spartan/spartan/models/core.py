@@ -22,17 +22,17 @@ class PageTemplate (Base):
 class Page (MixinTable, Base):
     __tablename__ = 'pages'
     
-    id          	 = Column(Integer, primary_key = True, autoincrement = True)
-    name        	 = Column(String(300), nullable = False)
+    id               = Column(Integer, primary_key = True, autoincrement = True)
+    name             = Column(String(300), nullable = False)
     slug             = Column(String, nullable = False, unique = True)
     template_id      = Column(Integer, ForeignKey('page_templates.id'), nullable = False)
     sort             = Column(Integer, nullable = False, default = 1)
     parent_id        = Column(Integer, ForeignKey('pages.id'))
 
-    description 	 = Column(String)
-    content     	 = Column(String)
+    description      = Column(String)
+    content          = Column(String)
     slideshow        = Column(String)
-    show        	 = Column(Boolean, default = True, nullable = False)
+    show             = Column(Boolean, default = True, nullable = False)
     searchable       = Column(Boolean, default = True, nullable = False)
     
     floating_content = Column(String)
