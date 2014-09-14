@@ -4,7 +4,7 @@ from sqlalchemy import engine_from_config
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 
-from spartan.models.meta import (DBSession, Base)
+from .models.meta import (DBSession, Base)
 from .security import (EntryFactory, groupfinder)
 
 
@@ -12,10 +12,10 @@ def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
     engine = engine_from_config(settings, 'sqlalchemy.')
-    DBSession.configure(bind = engine)
+    DBSession.configure(bind=engine)
     Base.metadata.bind = engine
     
-    authentication_policy = AuthTktAuthenticationPolicy(settings['auth.secret'], callback = groupfinder)
+    authentication_policy = AuthTktAuthenticationPolicy(settings['auth.secret'], callback=groupfinder)
     authorization_policy  = ACLAuthorizationPolicy()
 
     config = Configurator(settings              = settings,

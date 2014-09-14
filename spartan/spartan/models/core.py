@@ -4,11 +4,11 @@ from .meta import *
 class PageTemplate (Base):
     __tablename__ = 'page_templates'
     
-    id       = Column(Integer, primary_key = True, autoincrement = True)
-    name     = Column(String(100), unique = True, nullable = False)
-    filename = Column(String, nullable = False)
+    id       = Column(Integer, primary_key=True, autoincrement=True)
+    name     = Column(String(100), unique=True, nullable=False)
+    filename = Column(String, nullable=False)
 
-    def __init__(self, name, filename = None):
+    def __init__(self, name, filename=None):
         self.name     = name
         if filename is None:
             self.filename = name.lower() + '.html'
@@ -22,26 +22,26 @@ class PageTemplate (Base):
 class Page (MixinTable, Base):
     __tablename__ = 'pages'
     
-    id               = Column(Integer, primary_key = True, autoincrement = True)
-    name             = Column(String(300), nullable = False)
-    slug             = Column(String, nullable = False, unique = True)
-    template_id      = Column(Integer, ForeignKey('page_templates.id'), nullable = False)
-    sort             = Column(Integer, nullable = False, default = 1)
+    id               = Column(Integer, primary_key = True, autoincrement=True)
+    name             = Column(String(300), nullable=False)
+    slug             = Column(String, nullable=False, unique = True)
+    template_id      = Column(Integer, ForeignKey('page_templates.id'), nullable=False)
+    sort             = Column(Integer, nullable=False, default=1)
     parent_id        = Column(Integer, ForeignKey('pages.id'))
 
     description      = Column(String)
     content          = Column(String)
     slideshow        = Column(String)
-    show             = Column(Boolean, default = True, nullable = False)
-    searchable       = Column(Boolean, default = True, nullable = False)
+    show             = Column(Boolean, default=True, nullable=False)
+    searchable       = Column(Boolean, default=True, nullable=False)
     
     floating_content = Column(String)
-    show_floating    = Column(Boolean, default = False, nullable = False)
+    show_floating    = Column(Boolean, default=False, nullable=False)
     
     template         = relationship(PageTemplate)
     children         = relationship('Page', backref=backref('parent', remote_side=[id]), order_by='Page.sort')
 
-    def __init__(self, name = None, template_id = 2, description = None, content = None, show = True, searchable = True, show_floating = False, parent = None):
+    def __init__(self, name=None, template_id=2, description=None, content=None, show=True, searchable=True, show_floating=False, parent=None):
         self.name          = name
         self.template_id   = template_id
         self.description   = description
@@ -68,7 +68,7 @@ class Page (MixinTable, Base):
 
     def append(self):
         if self.slug is not None and self.sort is None:
-            last_page = DBSession.query(Page).filter_by(parent = self.parent).order_by('-sort').first()
+            last_page = DBSession.query(Page).filter_by(parent=self.parent).order_by('-sort').first()
             if last_page is not None:
                 self.sort = last_page.sort + 1
             else:
@@ -78,8 +78,8 @@ class Page (MixinTable, Base):
 class Site (MixinTable, Base):
     __tablename__ = 'site'
     
-    id               = Column(Integer, primary_key = True, autoincrement = True)
-    title            = Column(String(300), unique = True, nullable = False)
+    id               = Column(Integer, primary_key=True, autoincrement=True)
+    title            = Column(String(300), unique=True, nullable=False)
     contact_mails    = Column(String)
     logo             = Column(String)
 
@@ -92,7 +92,7 @@ class Site (MixinTable, Base):
     meta_keywords    = Column(String)
     meta_copyright   = Column(String)
 
-    def __init__(self, title, contact_mails, logo = None, facebook = None, twitter = None, youtube = None, ga_code = None):
+    def __init__(self, title, contact_mails, logo=None, facebook=None, twitter=None, youtube=None, ga_code=None):
         self.title         = title
         self.contact_mails = contact_mails
         self.logo          = logo
@@ -103,4 +103,3 @@ class Site (MixinTable, Base):
 
     def __str__(self):
         return self.name
-        

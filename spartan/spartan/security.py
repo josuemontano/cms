@@ -1,6 +1,6 @@
 from pyramid.security import (ALL_PERMISSIONS, Allow)
 
-from spartan.models.security import User
+from .models.security import User
 
 
 class EntryFactory(object):

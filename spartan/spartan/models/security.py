@@ -5,8 +5,8 @@ from .meta import *
 class Group (MixinTable, Base):
     __tablename__ = 'groups'
     
-    id   = Column(Integer, primary_key = True, autoincrement = True)
-    name = Column(String(100), unique = True, nullable = False)
+    id   = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(100), unique=True, nullable=False)
 
     def __init__(self, name):
         self.name  = name
@@ -18,13 +18,13 @@ class Group (MixinTable, Base):
 class User (MixinTable, Base):
     __tablename__ = 'users'
     
-    id          = Column(Integer, primary_key = True, autoincrement = True)
-    name        = Column(String(255), unique = True, nullable = False)
-    group_id    = Column(Integer, ForeignKey('groups.id'), nullable = False)
+    id          = Column(Integer, primary_key=True, autoincrement=True)
+    name        = Column(String(255), unique=True, nullable=False)
+    group_id    = Column(Integer, ForeignKey('groups.id'), nullable=False)
     last_logged = Column(DateTime)
-    misses      = Column(Integer, default = 0)
-    _password   = Column('password', Unicode(256), nullable = False)
-    salt        = Column(Unicode(64), nullable = False)
+    misses      = Column(Integer, default=0)
+    _password   = Column('password', Unicode(256), nullable=False)
+    salt        = Column(Unicode(64), nullable=False)
 
     group       = relationship(Group, backref = 'users')
 
@@ -38,10 +38,10 @@ class User (MixinTable, Base):
         self.salt, self._password = DigestUtil.hash_password(password)
 
     password = property(_get_password, _set_password)
-    password = synonym('_password', descriptor = password)
+    password = synonym('_password', descriptor=password)
 
 
-    def __init__(self, name = None, password = None, group = None):
+    def __init__(self, name=None, password=None, group=None):
         self.name     = name
         self.password = password
         self.group    = group

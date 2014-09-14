@@ -10,6 +10,7 @@ from Crypto.Cipher import AES
 from cryptography.hazmat.backends.openssl.backend import Backend
 from cryptography.hazmat.primitives import hashes
 
+
 class AESCipher(object):
     """
     Implement openssl compatible AES-256 CBC mode encryption/decryption.
@@ -43,7 +44,7 @@ class AESCipher(object):
             return None, None
 
 
-    def encrypt(self, password, plaintext, chunkIt = True):
+    def encrypt(self, password, plaintext, chunkIt=True):
         """
         The steps for encrypting are:
 
@@ -120,12 +121,12 @@ class AESCipher(object):
 class DigestUtil(object):
 
     @classmethod
-    def hash_password(_class, password, salt = None):
+    def hash_password(_class, password, salt=None):
         if salt is None:
             salt = os.urandom(32)
         else:
             salt = base64.b64decode(salt.encode('utf-8'))
-        digest = hashes.Hash(hashes.SHA512(), backend = Backend())
+        digest = hashes.Hash(hashes.SHA512(), backend=Backend())
         digest.update(salt + password.encode('utf-8'))
         salt = base64.b64encode(salt)
         hash = base64.b64encode(digest.finalize())
