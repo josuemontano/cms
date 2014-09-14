@@ -1,3 +1,4 @@
+# MAC OS X
 .DS_Store
 */.DS_Store
 .DS_Store?
@@ -7,5 +8,33 @@ __MACOSX
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
 __pycache__
-*/__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# PyCharm
+.idea

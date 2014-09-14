@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
     <head>
         <title>{{ site.title }}</title>
@@ -14,41 +14,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">        
 
-        <meta name="author" content="Josue Montano, josuemontanoa@gmail.com - ATC Agencia de Talentos Creativos" />
+        <meta name="author" content="Josue Montano, josuemontanoa@gmail.com" />
         <meta name="owner" content="Josue Montano, josuemontanoa@gmail.com">
         <meta name="copyright" content="{{ site.meta_copyright }}" />
 
         <link rel="shortcut icon" href="{{ request.static_url('public:static/images/favicon.ico') }}" />
         <link rel="stylesheet" href="{{ request.static_url('public:static/js/foundation/css/foundation.min.css') }}" />
         <link rel="stylesheet" href="{{ request.static_url('public:static/css/style.css') }}" />
-        {% block css %}{% endblock %}
-
-        <script src="{{ request.static_url('public:static/js/jquery.min.js') }}"></script>
-        <script src="{{ request.static_url('public:static/js/foundation/js/vendor/zepto.js') }}"></script>
-        <script src="{{ request.static_url('public:static/js/foundation/js/foundation.min.js') }}"></script>
-
-        <script>
-            $(function(){
-                $(document).foundation();
-
-                if (window.location == '{{ request.application_url }}/')
-                    $('header nav li:first').addClass('active');
-                else {
-                    $('header nav li a').each(function(){
-                        var href = $(this).attr('href');
-                        if (window.location == encodeURI(href) || window.location == encodeURI(href) + '/')
-                            $(this).parent().addClass('active');
-                    });
-                }
-            });
-
-            function loadPage(url, sender, target){
-                $(target).load(url);
-                $(sender).parent().siblings().removeClass('active');
-                $(sender).parent().addClass('active');
-            }
-        </script>
-        {% block js %}{% endblock %}
     </head>
 
     <body>
@@ -59,5 +31,28 @@
             </div>
         </div>
         #- include 'footer.html'
+
+        {% block css %}{% endblock %}
+        <script src="{{ request.static_url('public:static/js/jquery.min.js') }}"></script>
+        <script>
+            $(function() {
+                if (window.location == '{{ request.application_url }}/')
+                    $('header nav li:first').addClass('active');
+                else {
+                    $('header nav li a').each(function() {
+                        var href = $(this).attr('href');
+                        if (window.location == encodeURI(href) || window.location == encodeURI(href) + '/')
+                            $(this).parent().addClass('active');
+                    });
+                }
+            });
+
+            function loadPage(url, sender, target) {
+                $(target).load(url);
+                $(sender).parent().siblings().removeClass('active');
+                $(sender).parent().addClass('active');
+            }
+        </script>
+        {% block js %}{% endblock %}
     </body>
 </html>
