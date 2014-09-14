@@ -18,11 +18,11 @@
 
         <link rel="stylesheet" href="{{ request.static_url('spartan:static/css/foundation.min.css') }}" />
         <link rel="stylesheet" href="{{ request.static_url('spartan:static/css/style.css') }}" />
+        <script src="{{ request.static_url('spartan:static/js/jquery.min.js') }}"></script>
     </head>
 
     <body>
-        # include 'menu.html'
-
+        {% include 'menu.html' %}
         <div class="content">
             <div class="wrapper">
                 <div id="body" class="noise">
@@ -30,24 +30,23 @@
                 </div>
             </div>
         </div>
-
-        # include 'footer.html'
+        {% include 'footer.html' %}
 
         <link rel="stylesheet" href="{{ request.static_url('spartan:static/css/fonts.css') }}" />
         <link rel="stylesheet" href="{{ request.static_url('spartan:static/js/redactor/redactor.css') }}" />
         {% block css %}{% endblock %}
 
-        <script src="{{ request.static_url('spartan:static/js/jquery.min.js') }}"></script>
         <script src="{{ request.static_url('spartan:static/js/redactor/redactor.min.js') }}"></script>
         <script src="{{ request.static_url('spartan:static/js/redactor/fullscreen.js') }}"></script>
         <script src="{{ request.static_url('spartan:static/js/redactor/lang/es.js') }}"></script>
         <script>
-            $(function(){
+            $(function() {
+                $.ajaxSetup({ cache: false });
                 $(document).on({
-                    mouseenter : function () {
+                    mouseenter : function() {
                         $(this).slideUp(600);
                     },
-                    mouseleave : function () {
+                    mouseleave : function() {
                     }
                 }, '.message');
             });
@@ -58,9 +57,9 @@
             }
 
             function loadPage(_url, _target, sender) {
-                $(_target).animate({ opacity: 0, left: '20%' }, 350, function(){
+                $(_target).animate({ opacity: 0, left: '20%' }, 350, function() {
                     switchMenu(sender);
-                    $(_target).load(_url, function() {
+                    $(_target).load(_url, null, function() {
                         $(_target).animate({ opacity: 1, left: '0%' }, 350);
                     });
                 });

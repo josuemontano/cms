@@ -24,13 +24,13 @@
     </head>
 
     <body>
-        #- include 'menu.html'
+        {% include 'menu.html' %}
         <div class="row">
             <div class="large-12 columns">
                 <div class="content">{% block content -%}{%- endblock %}</div>
             </div>
         </div>
-        #- include 'footer.html'
+        {% include 'footer.html' %}
 
         {% block css %}{% endblock %}
         <script src="{{ request.static_url('public:static/js/jquery.min.js') }}"></script>
@@ -52,6 +52,14 @@
                 $(sender).parent().siblings().removeClass('active');
                 $(sender).parent().addClass('active');
             }
+        </script>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '{{ site.ga_code }}', 'auto');
+        ga('send', 'pageview');
         </script>
         {% block js %}{% endblock %}
     </body>

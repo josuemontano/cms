@@ -1,15 +1,14 @@
 {% if not request.is_xhr %}{% extends 'templates/layout.html' %}{% endif %}
 
 
-#- block content
-#- if message:
+{% block content %}
+{% if message: %}
     <div class="message">
         {{ message|safe }}
     </div>
-#- endif
+{% endif %}
 
 <div class="panel form-panel">
-        #- block form
-        #- endblock
+    {% block form %}{% endblock %}
 </div>
-#- endblock
+{% endblock %}
