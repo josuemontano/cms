@@ -1,0 +1,5 @@
+@import url('icomoon.css');
+
+@font-face{font-family: LatoRegular;src: url('../fonts/Lato-Reg.ttf') format('truetype')}
+@font-face{font-family: LatoLight;src: url('../fonts/Lato-Lig.ttf') format('truetype')}
+@font-face{font-family: LatoBlack;src: url('../fonts/Lato-Bla.ttf') format('truetype')}
