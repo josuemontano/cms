@@ -1,6 +1,10 @@
 SpartanCMS
 ===
 
+**IMPORTANT NOTE: THIS PROJECT IS NO LONGER MAINTAINED. IT WAS BORN IN ORDER TO LEARN & TEACH AND IT IS FAR FROM BEING PRODUCTION READY**
+
+---
+
 One of the best CMS I've found is [SilverStripe](http://www.silverstripe.org). But something more flexible was needed, so I wrote this content managment system in python.
 
 Much work is still ahead, documentation and some functionality is incomplete, but it works! Feel free to contribute.
